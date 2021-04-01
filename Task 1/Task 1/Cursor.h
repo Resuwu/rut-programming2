@@ -1,5 +1,8 @@
 ﻿#pragma once
 
+/**
+ * \brief Ориентация курсора.
+ */
 enum class Orientation
 {
 	Horisontal,
@@ -25,7 +28,7 @@ public:
 	 * \param view Вид курсора
 	 * \param isVisible Видимость курсора
 	 */
-	Cursor(int x, int y, int size, Orientation view, bool isVisible);
+	Cursor(unsigned int x, unsigned int y, unsigned int size, Orientation view, bool isVisible);
 
 	/**
 	 * \brief Деструктор
@@ -36,19 +39,19 @@ public:
 	 * \brief Метод, возвращающий координату X
 	 * \return Координату X
 	 */
-	int getX() const;
+	unsigned int getX() const;
 
 	/**
 	 * \brief Метод, возвращающий координату Y
 	 * \return Координату Y
 	 */
-	int getY() const;
+	unsigned int getY() const;
 
 	/**
 	 * \brief Метод, возвращающий размер курсора
 	 * \return Размер курсора
 	 */
-	int getSize() const;
+	unsigned int getSize() const;
 
 	/**
 	 * \brief Метод, возвращающий вид курсора
@@ -60,19 +63,19 @@ public:
 	 * \brief Метод, изменяющий положение курсора по оси X
 	 * \param x Новое значение X
 	 */
-	void setX(int x);
+	void setX(unsigned int x);
 
 	/**
 	 * \brief Метод, изменяющий положение курсора по оси Y
 	 * \param x Новое значение Y
 	 */
-	void setY(int y);
+	void setY(unsigned int y);
 
 	/**
 	 * \brief Метод, изменяющий размер курсора
 	 * \param x Новое значение размера курсора
 	 */
-	void setSize(int size);
+	void setSize(unsigned int size);
 
 	/**
 	 * \brief Метод, изменяющий вид курсора
@@ -90,17 +93,17 @@ private:
 	/**
 	 * \brief Координата по оси X
 	 */
-	int x;
+	unsigned int x;
 
 	/**
 	 * \brief Координата по оси Y
 	 */
-	int y;
+	unsigned int y;
 
 	/**
 	 * \brief Размер курсора
 	 */
-	int size;
+	unsigned int size;
 
 	/**
 	 * \brief Вид курсора
