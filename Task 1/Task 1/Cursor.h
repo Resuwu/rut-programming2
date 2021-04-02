@@ -28,7 +28,7 @@ public:
 	 * \param view Вид курсора
 	 * \param isVisible Видимость курсора
 	 */
-	Cursor(unsigned int x, unsigned int y, unsigned int size, Orientation view, bool isVisible);
+	Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool isVisible);
 
 	/**
 	 * \brief Деструктор
@@ -51,7 +51,7 @@ public:
 	 * \brief Метод, возвращающий размер курсора
 	 * \return Размер курсора
 	 */
-	unsigned int getSize() const;
+	unsigned char getSize() const;
 
 	/**
 	 * \brief Метод, возвращающий вид курсора
@@ -75,7 +75,7 @@ public:
 	 * \brief Метод, изменяющий размер курсора
 	 * \param x Новое значение размера курсора
 	 */
-	void setSize(unsigned int size);
+	void setSize(unsigned char size);
 
 	/**
 	 * \brief Метод, изменяющий вид курсора
@@ -84,10 +84,16 @@ public:
 	void setView(Orientation view);
 
 	/**
-	 * \brief Метод, переключающий видимость курсора
+	 * \brief Метод, гасящий курсор
 	 * \param isVisible Видимость курсора
 	 */
-	void changeVisibility(bool isVisible);
+	void hide(bool isVisible);
+
+	/**
+	 * \brief Метод, востанавливаюций курсор
+	 * \param isVisible Видимость курсора
+	 */
+	void show(bool isVisible);
 
 private:
 	/**
@@ -103,7 +109,7 @@ private:
 	/**
 	 * \brief Размер курсора
 	 */
-	unsigned int size;
+	unsigned char size;
 
 	/**
 	 * \brief Вид курсора
