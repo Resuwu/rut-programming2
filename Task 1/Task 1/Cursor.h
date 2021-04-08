@@ -16,11 +16,6 @@ class Cursor
 {
 public:
 	/**
-	 * \brief Конструктор по умолчанию.
-	 */
-	Cursor();
-
-	/**
 	 * \brief Параметризованный конструктор.
 	 * \param x Координата X
 	 * \param y Координата Y
@@ -33,7 +28,7 @@ public:
 	/**
 	 * \brief Деструктор
 	 */
-	~Cursor();
+	~Cursor() = default;
 
 	/**
 	 * \brief Метод, возвращающий координату X
@@ -87,13 +82,13 @@ public:
 	 * \brief Метод, гасящий курсор
 	 * \param isVisible Видимость курсора
 	 */
-	void hide(bool isVisible);
+	void hide();
 
 	/**
 	 * \brief Метод, востанавливаюций курсор
 	 * \param isVisible Видимость курсора
 	 */
-	void show(bool isVisible);
+	void show();
 
 private:
 	/**
