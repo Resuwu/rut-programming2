@@ -40,91 +40,91 @@ public:
 	 * \brief Метод, возвращающий координату X
 	 * \return Координату X
 	 */
-	unsigned int getX() const;
+	unsigned int GetX() const;
 
 	/**
 	 * \brief Метод, возвращающий координату Y
 	 * \return Координату Y
 	 */
-	unsigned int getY() const;
+	unsigned int GetY() const;
 
 	/**
 	 * \brief Метод, возвращающий размер курсора
 	 * \return Размер курсора
 	 */
-	unsigned char getSize() const;
+	unsigned char GetSize() const;
 
 	/**
 	 * \brief Метод, возвращающий вид курсора
 	 * \return Вид курсора
 	 */
-	Orientation getView() const;
+	Orientation GetView() const;
 
 	/**
 	 * \brief Метод, возвращающий видимость курсора
 	 * \return Видимость курсора
 	 */
-	bool getIsVisible() const;
+	bool GetIsVisible() const;
 
 	/**
 	 * \brief Метод, изменяющий положение курсора по оси X
 	 * \param x Новое значение X
 	 */
-	void setX(unsigned int x);
+	void SetX(unsigned int x);
 
 	/**
 	 * \brief Метод, изменяющий положение курсора по оси Y
 	 * \param x Новое значение Y
 	 */
-	void setY(unsigned int y);
+	void SetY(unsigned int y);
 
 	/**
 	 * \brief Метод, изменяющий размер курсора
 	 * \param x Новое значение размера курсора
 	 */
-	void setSize(unsigned char size);
+	void SetSize(unsigned char size);
 
 	/**
 	 * \brief Метод, изменяющий вид курсора
 	 * \param x Вид курсора
 	 */
-	void setView(Orientation view);
+	void SetView(Orientation view);
 
 	/**
 	 * \brief Метод, гасящий курсор
 	 * \param isVisible Видимость курсора
 	 */
-	void hide();
+	void Hide();
 
 	/**
 	 * \brief Метод, востанавливаюций курсор
 	 * \param isVisible Видимость курсора
 	 */
-	void show();
+	void Show();
 
 private:
 	/**
 	 * \brief Координата по оси X
 	 */
-	unsigned int x;
+	unsigned int X;
 
 	/**
 	 * \brief Координата по оси Y
 	 */
-	unsigned int y;
+	unsigned int Y;
 
 	/**
 	 * \brief Размер курсора
 	 */
-	unsigned char size;
+	unsigned char Size;
 
 	/**
 	 * \brief Вид курсора
 	 */
-	Orientation view;
+	Orientation View;
 
 	/**
 	 * \brief Видимость курсора
 	 */
-	bool isVisible;
+	bool IsVisible;
 };
