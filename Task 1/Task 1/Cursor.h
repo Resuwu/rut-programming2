@@ -26,6 +26,12 @@ public:
 	Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool isVisible);
 
 	/**
+	 * \brief Конструктор копирования.
+	 * \param other Копируемый курсор.
+	 */
+	Cursor(const Cursor& other);
+
+	/**
 	 * \brief Деструктор
 	 */
 	~Cursor() = default;
@@ -53,6 +59,12 @@ public:
 	 * \return Вид курсора
 	 */
 	Orientation getView() const;
+
+	/**
+	 * \brief Метод, возвращающий видимость курсора
+	 * \return Видимость курсора
+	 */
+	bool getIsVisible() const;
 
 	/**
 	 * \brief Метод, изменяющий положение курсора по оси X
