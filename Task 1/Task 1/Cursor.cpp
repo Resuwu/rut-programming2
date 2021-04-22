@@ -2,58 +2,68 @@
 #include "Helper.cpp"
 
 Cursor::Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool isVisible)
-	: x(x), y(y), size(size), view(view), isVisible(isVisible)
+	: X(x), Y(y), Size(size), View(view), IsVisible(isVisible)
 {
 }
 
-unsigned int Cursor::getX() const
+Cursor::Cursor(const Cursor& other)
+	: Cursor(other.GetX(), other.GetY(), other.GetSize(), other.GetView(), other.GetIsVisible())
 {
-	return this->x;
 }
 
-unsigned int Cursor::getY() const
+unsigned int Cursor::GetX() const
 {
-	return this->y;
+	return this->X;
 }
 
-unsigned char Cursor::getSize() const
+unsigned int Cursor::GetY() const
 {
-	return this->size;
+	return this->Y;
 }
 
-Orientation Cursor::getView() const
+unsigned char Cursor::GetSize() const
 {
-	return this->view;
+	return this->Size;
 }
 
-void Cursor::setX(unsigned int new_x)
+Orientation Cursor::GetView() const
+{
+	return this->View;
+}
+
+bool Cursor::GetIsVisible() const
+{
+	return this->IsVisible;
+}
+
+void Cursor::SetX(unsigned int new_x)
 {
 	if (inRange(0, 1920, new_x))
-		x = new_x;
+		X = new_x;
 }
 
-void Cursor::setY(unsigned int new_y)
+void Cursor::SetY(unsigned int new_y)
 {
 	if (inRange(0, 1080, new_y))
-		y = new_y;
+		Y = new_y;
 }
 
-void Cursor::setSize(unsigned char new_size)
+void Cursor::SetSize(unsigned char new_size)
 {
-		size = new_size;
+		Size = new_size;
 }
 
-void Cursor::setView(Orientation new_view)
+void Cursor::SetView(Orientation new_view)
 {
-	view = new_view;
+	View = new_view;
 }
 
-void Cursor::hide()
+void Cursor::Hide()
 {
-	isVisible = false;
+	IsVisible = false;
 }
 
-void Cursor::show()
+void Cursor::Show()
 {
-	isVisible = true;
+	IsVisible = true;
 }
