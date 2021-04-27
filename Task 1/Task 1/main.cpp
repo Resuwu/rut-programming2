@@ -1,8 +1,7 @@
 ﻿#include <iostream>
-#include <exception>
 #include "Cursor.h"
 
-Orientation inView(std::string input);
+std::string View_output(Orientation value);
 
 /**
  * \brief Функция входа в программу.
@@ -10,58 +9,35 @@ Orientation inView(std::string input);
  */
 int main()
 {
-	unsigned int x;
-	unsigned int y;
-	unsigned char size;
-	Orientation view;
-
-	std::cout << "Input initial cursor values:\n";
-	std::cin >> x >> y >> size >> view;
-
-	Cursor airplane(x, y, size, view, true);
-
-	std::cout << "Methods tests:\n";
-	try
-	{
-		std::cout << "Test of getX() method: " << airplane.getX() << std::endl;
-		std::cout << "Test of setX() method, input x: ";
-		std::cin >> x;
-		airplane.setX(x);
-		std::cout << "getX(): " << airplane.getX() << std::endl;
-
-		std::cout << "Test of getY() method: " << airplane.getY() << std::endl;
-		std::cout << "Test of setY() method, input y: ";
-		std::cin >> y;
-		airplane.setY(y);
-		std::cout << "getY(): " << airplane.getY() << std::endl;
-
-		std::cout << "Test of getSize() method: " << airplane.getSize() << std::endl;
-		std::cout << "Test of setSize() method, input size: ";
-		std::cin >> size;
-		airplane.setSize(size);
-		std::cout << "getSize(): " << airplane.getSize() << std::endl;
-
-		std::cout << "Test of getView() method: " << airplane.getView() << std::endl;
-		std::cout << "Test of setY() method, input y: ";
-		std::cin >> y;
-		airplane.setY(y);
-		std::cout << "getY(): " << airplane.getY() << std::endl;
-	}
-	catch (std::exception& e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-
-	system("pause");
-	return 0;
+	Cursor test_cursor(500, 400, 10, Orientation::Vertical, true, 1920, 1080, 15, 1);
+	std::cout << "--------------------GETTERS--------------------" << std::endl;
+	std::cout << test_cursor.Get_X() << std::endl;
+	std::cout << test_cursor.Get_Y() << std::endl;
+	std::cout << static_cast<int>(test_cursor.Get_Size()) << std::endl;
+	std::cout << View_output(test_cursor.Get_View()) << std::endl;
+	std::cout << test_cursor.Get_Is_Visible() << std::endl;
+	std::cout << "--------------------SETTERS--------------------" << std::endl;
+	test_cursor.Set_X(400);
+	test_cursor.Set_Y(300);
+	test_cursor.Set_Size(5);
+	test_cursor.Set_View(Orientation::Horisontal);
+	test_cursor.Hide();
+	std::cout << test_cursor.Get_X() << std::endl;
+	std::cout << test_cursor.Get_Y() << std::endl;
+	std::cout << static_cast<int>(test_cursor.Get_Size()) << std::endl;
+	std::cout << View_output(test_cursor.Get_View()) << std::endl;
+	std::cout << test_cursor.Get_Is_Visible() << std::endl;
+	std::cout << "--------------------TESTSHOW--------------------" << std::endl;
+	test_cursor.Show();
+	std::cout << test_cursor.Get_Is_Visible() << std::endl;
 }
 
-Orientation inView(std::string input)
+std::string View_output(Orientation value)
 {
-	Orientation view = Orientation::Horisontal;
-	if (input == "Horisontal")
-		view = Orientation::Horisontal;
-	else if (input == "Vertical")
-		view = Orientation::Vertical;
-	return view;
+	std::string output;
+	if (value == Orientation::Horisontal)
+		output = "Horisontal";
+	if (value == Orientation::Vertical)
+		output = "Vertical";
+	return output;
 }

@@ -1,69 +1,70 @@
 #include "Cursor.h"
 #include "Helper.cpp"
 
-Cursor::Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool isVisible)
-	: X(x), Y(y), Size(size), View(view), IsVisible(isVisible)
+Cursor::Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool is_visible, unsigned int x_resolution, unsigned int y_resolution, unsigned char max_size, unsigned char min_size)
+	: m_x(x), m_y(y), m_size(size), m_view(view), m_is_visible(is_visible), m_x_resolution(x_resolution), m_y_resolution(y_resolution), m_max_size(max_size), m_min_size(min_size)
 {
 }
 
 Cursor::Cursor(const Cursor& other)
-	: Cursor(other.GetX(), other.GetY(), other.GetSize(), other.GetView(), other.GetIsVisible())
+	: Cursor(other.Get_X(), other.Get_Y(), other.Get_Size(), other.Get_View(), other.Get_Is_Visible(), other.m_x_resolution, other.m_y_resolution, other.m_max_size, other.m_min_size)
 {
 }
 
-unsigned int Cursor::GetX() const
+unsigned int Cursor::Get_X() const
 {
-	return this->X;
+	return this->m_x;
 }
 
-unsigned int Cursor::GetY() const
+unsigned int Cursor::Get_Y() const
 {
-	return this->Y;
+	return this->m_y;
 }
 
-unsigned char Cursor::GetSize() const
+unsigned char Cursor::Get_Size() const
 {
-	return this->Size;
+	return this->m_size;
 }
 
-Orientation Cursor::GetView() const
+Orientation Cursor::Get_View() const
 {
-	return this->View;
+	return this->m_view;
 }
 
-bool Cursor::GetIsVisible() const
+bool Cursor::Get_Is_Visible() const
 {
-	return this->IsVisible;
+	return this->m_is_visible;
 }
 
-void Cursor::SetX(unsigned int new_x)
+void Cursor::Set_X(unsigned int x)
 {
-	if (inRange(0, 1920, new_x))
-		X = new_x;
+	if (In_range_for_int(this->m_x_resolution, x))
+		m_x = x;
 }
 
-void Cursor::SetY(unsigned int new_y)
+void Cursor::Set_Y(unsigned int y)
 {
-	if (inRange(0, 1080, new_y))
-		Y = new_y;
+	if (In_range_for_int(this->m_y_resolution, y))
+		m_y = y;
 }
 
-void Cursor::SetSize(unsigned char new_size)
+void Cursor::Set_Size(unsigned char size)
 {
-		Size = new_size;
+	if (In_range_for_char(this->m_min_size, this->m_max_size, size))
+		m_size = size;
 }
 
-void Cursor::SetView(Orientation new_view)
+void Cursor::Set_View(Orientation view)
 {
-	View = new_view;
+	m_view = view;
 }
 
 void Cursor::Hide()
 {
-	IsVisible = false;
+	m_is_visible = false;
 }
 
 void Cursor::Show()
 {
-	IsVisible = true;
+	m_is_visible = true;
 }
