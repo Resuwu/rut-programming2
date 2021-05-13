@@ -1,7 +1,8 @@
 #include "Cursor.h"
 #include "Helper.cpp"
 
-explicit Cursor::Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool is_visible, unsigned int x_resolution, unsigned int y_resolution, unsigned char max_size, unsigned char min_size)
+Cursor::Cursor(const unsigned int x, const unsigned int y, const unsigned char size, const Orientation& view,
+	const bool is_visible, const unsigned int x_resolution, const unsigned int y_resolution, const unsigned char max_size, const unsigned char min_size)
 	: m_x(x), m_y(y), m_size(size), m_view(view), m_is_visible(is_visible), m_x_resolution(x_resolution), m_y_resolution(y_resolution), m_max_size(max_size), m_min_size(min_size)
 {
 }
@@ -67,4 +68,19 @@ void Cursor::hide()
 void Cursor::show()
 {
 	m_is_visible = true;
+}
+
+std::ostream& operator<<(std::ostream& os, const Orientation& obj)
+{
+	std::string text;
+	if (obj == Orientation::Horisontal)
+		text = "Horisontal";
+	if (obj == Orientation::Vertical)
+		text = "Vertical";
+	return os << text;
+}
+
+std::ostream& operator<<(std::ostream& os, const Cursor& obj)
+{
+	return os << obj.get_x() << '/' << obj.get_y() << '/' << obj.get_size() << '/' << obj.get_view() << '/' << obj.get_visibility();
 }

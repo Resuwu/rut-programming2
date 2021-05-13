@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include <string>
+#include <ostream>
 
 /**
  * \brief Ориентация курсора.
@@ -23,7 +25,8 @@ public:
 	 * \param view Вид курсора
 	 * \param isVisible Видимость курсора
 	 */
-	explicit Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool is_visible, unsigned int x_resolution, unsigned int y_resolution, unsigned char max_size, unsigned char min_size);
+    explicit Cursor(const unsigned int x, const unsigned int y, const unsigned char size, const Orientation& view,
+		const bool is_visible, const unsigned int x_resolution, const unsigned int y_resolution, const unsigned char max_size, const unsigned char min_size);
 
 	/**
 	 * \brief Конструктор копирования.
@@ -101,6 +104,10 @@ public:
 	 * \param isVisible Видимость курсора
 	 */
 	void show();
+
+	friend std::ostream& operator<<(std::ostream& os, const Orientation& obj);
+
+	friend std::ostream& operator<<(std::ostream& os, const Cursor& obj);
 
 private:
 	/**

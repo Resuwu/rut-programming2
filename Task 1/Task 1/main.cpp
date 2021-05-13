@@ -10,6 +10,8 @@ std::string view_output(Orientation value);
 int main()
 {
 	Cursor test_cursor(500, 400, 10, Orientation::Vertical, true, 1920, 1080, 15, 1);
+	std::cout << "--------------------OVERLOAD--------------------" << std::endl;
+	std::cout << test_cursor << std::endl;
 	std::cout << "--------------------GETTERS--------------------" << std::endl;
 	std::cout << test_cursor.get_x() << std::endl;
 	std::cout << test_cursor.get_y() << std::endl;
