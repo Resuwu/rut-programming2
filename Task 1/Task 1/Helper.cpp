@@ -5,7 +5,7 @@
 * \param x Проверяемое число
 * \return True - in range, false - out of range
 */
-inline bool In_range_for_int(unsigned int max, unsigned int x)
+inline bool in_range_for_int(unsigned int max, unsigned int x)
 {
 	return x <= max;
 }
@@ -17,7 +17,7 @@ inline bool In_range_for_int(unsigned int max, unsigned int x)
 * \param x Проверяемое число
 * \return True - in range, false - out of range
 */
-inline bool In_range_for_char(unsigned char min, unsigned char max, unsigned char x)
+inline bool in_range_for_char(unsigned char min, unsigned char max, unsigned char x)
 {
 	return x >= min && x <= max;
 }

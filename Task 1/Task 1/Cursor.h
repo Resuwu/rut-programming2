@@ -23,7 +23,7 @@ public:
 	 * \param view Вид курсора
 	 * \param isVisible Видимость курсора
 	 */
-	Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool is_visible, unsigned int x_resolution, unsigned int y_resolution, unsigned char max_size, unsigned char min_size);
+	explicit Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool is_visible, unsigned int x_resolution, unsigned int y_resolution, unsigned char max_size, unsigned char min_size);
 
 	/**
 	 * \brief Конструктор копирования.
@@ -40,67 +40,67 @@ public:
 	 * \brief Метод, возвращающий координату X
 	 * \return Координату X
 	 */
-	unsigned int Get_X() const;
+	unsigned int get_x() const;
 
 	/**
 	 * \brief Метод, возвращающий координату Y
 	 * \return Координату Y
 	 */
-	unsigned int Get_Y() const;
+	unsigned int get_y() const;
 
 	/**
 	 * \brief Метод, возвращающий размер курсора
 	 * \return Размер курсора
 	 */
-	unsigned char Get_Size() const;
+	unsigned char get_size() const;
 
 	/**
 	 * \brief Метод, возвращающий вид курсора
 	 * \return Вид курсора
 	 */
-	Orientation Get_View() const;
+	Orientation get_view() const;
 
 	/**
 	 * \brief Метод, возвращающий видимость курсора
 	 * \return Видимость курсора
 	 */
-	bool Get_Is_Visible() const;
+	bool get_visibility() const;
 
 	/**
 	 * \brief Метод, изменяющий положение курсора по оси X
 	 * \param x Новое значение X
 	 */
-	void Set_X(unsigned int x);
+	void set_x(unsigned int x);
 
 	/**
 	 * \brief Метод, изменяющий положение курсора по оси Y
 	 * \param x Новое значение Y
 	 */
-	void Set_Y(unsigned int y);
+	void set_y(unsigned int y);
 
 	/**
 	 * \brief Метод, изменяющий размер курсора
 	 * \param x Новое значение размера курсора
 	 */
-	void Set_Size(unsigned char size);
+	void set_size(unsigned char size);
 
 	/**
 	 * \brief Метод, изменяющий вид курсора
 	 * \param x Вид курсора
 	 */
-	void Set_View(Orientation view);
+	void set_view(Orientation view);
 
 	/**
 	 * \brief Метод, гасящий курсор
 	 * \param isVisible Видимость курсора
 	 */
-	void Hide();
+	void hide();
 
 	/**
 	 * \brief Метод, востанавливаюций курсор
 	 * \param isVisible Видимость курсора
 	 */
-	void Show();
+	void show();
 
 private:
 	/**

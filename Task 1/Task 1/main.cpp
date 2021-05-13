@@ -11,37 +11,37 @@ int main()
 {
 	Cursor test_cursor(500, 400, 10, Orientation::Vertical, true, 1920, 1080, 15, 1);
 	std::cout << "--------------------GETTERS--------------------" << std::endl;
-	std::cout << test_cursor.Get_X() << std::endl;
-	std::cout << test_cursor.Get_Y() << std::endl;
-	std::cout << static_cast<int>(test_cursor.Get_Size()) << std::endl;
-	std::cout << View_output(test_cursor.Get_View()) << std::endl;
-	std::cout << test_cursor.Get_Is_Visible() << std::endl;
+	std::cout << test_cursor.get_x() << std::endl;
+	std::cout << test_cursor.get_y() << std::endl;
+	std::cout << static_cast<int>(test_cursor.get_size()) << std::endl;
+	std::cout << View_output(test_cursor.get_view()) << std::endl;
+	std::cout << test_cursor.get_visibility() << std::endl;
 	Cursor test_copy(test_cursor);
 	std::cout << "--------------------TESTCOPY--------------------" << std::endl;
-	std::cout << test_copy.Get_X() << std::endl;
-	std::cout << test_copy.Get_Y() << std::endl;
-	std::cout << static_cast<int>(test_copy.Get_Size()) << std::endl;
-	std::cout << View_output(test_copy.Get_View()) << std::endl;
-	std::cout << test_copy.Get_Is_Visible() << std::endl;
+	std::cout << test_copy.get_x() << std::endl;
+	std::cout << test_copy.get_y() << std::endl;
+	std::cout << static_cast<int>(test_copy.get_size()) << std::endl;
+	std::cout << view_output(test_copy.get_view()) << std::endl;
+	std::cout << test_copy.get_visibility() << std::endl;
 	std::cout << "--------------------SETTERS--------------------" << std::endl;
-	test_cursor.Set_X(400);
-	test_cursor.Set_Y(300);
-	test_cursor.Set_Size(5);
-	test_cursor.Set_View(Orientation::Horisontal);
-	test_cursor.Hide();
-	std::cout << test_cursor.Get_X() << std::endl;
-	std::cout << test_cursor.Get_Y() << std::endl;
-	std::cout << static_cast<int>(test_cursor.Get_Size()) << std::endl;
-	std::cout << View_output(test_cursor.Get_View()) << std::endl;
-	std::cout << test_cursor.Get_Is_Visible() << std::endl;
+	test_cursor.set_x(400);
+	test_cursor.set_y(300);
+	test_cursor.set_size(5);
+	test_cursor.set_view(Orientation::Horisontal);
+	test_cursor.hide();
+	std::cout << test_cursor.get_x() << std::endl;
+	std::cout << test_cursor.get_y() << std::endl;
+	std::cout << static_cast<int>(test_cursor.get_size()) << std::endl;
+	std::cout << view_output(test_cursor.get_view()) << std::endl;
+	std::cout << test_cursor.get_visibility() << std::endl;
 	std::cout << "--------------------TESTSHOW--------------------" << std::endl;
-	test_cursor.Show();
-	std::cout << test_cursor.Get_Is_Visible() << std::endl;
+	test_cursor.show();
+	std::cout << test_cursor.get_visibility() << std::endl;
 	system("pause");
 	return 0;
 }
 
-std::string View_output(Orientation value)
+std::string view_output(Orientation value)
 {
 	std::string output;
 	if (value == Orientation::Horisontal)
