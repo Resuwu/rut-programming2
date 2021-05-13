@@ -131,20 +131,20 @@ private:
 	/**
 	 * \brief Разрешение экрана по оси x
 	 */
-	const unsigned int m_x_resolution;
+	unsigned int m_x_resolution;
 
 	/**
 	 * \brief Разрешение экрана по оси y
 	 */
-	const unsigned int m_y_resolution;
+	unsigned int m_y_resolution;
 
 	/**
 	 * \brief Максимальный размер курсора
 	 */
-	const unsigned char m_max_size;
+	unsigned char m_max_size;
 
 	/**
 	 * \brief Минимальный размер курсора
 	 */
-	const unsigned char m_min_size;
+	unsigned char m_min_size;
 };

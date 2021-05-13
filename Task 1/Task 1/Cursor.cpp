@@ -7,7 +7,7 @@ explicit Cursor::Cursor(unsigned int x, unsigned int y, unsigned char size, Orie
 }
 
 Cursor::Cursor(const Cursor& other)
-	: Cursor(other.get_x(), other.get_y(), other.get_size(), other.get_view(), other.get_is_visible(), other.m_x_resolution, other.m_y_resolution, other.m_max_size, other.m_min_size)
+	: Cursor(other.get_x(), other.get_y(), other.get_size(), other.get_view(), other.get_visibility(), other.m_x_resolution, other.m_y_resolution, other.m_max_size, other.m_min_size)
 {
 }
 

@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include "Cursor.h"
 
-std::string View_output(Orientation value);
+std::string view_output(Orientation value);
 
 /**
  * \brief Функция входа в программу.
@@ -14,7 +14,7 @@ int main()
 	std::cout << test_cursor.get_x() << std::endl;
 	std::cout << test_cursor.get_y() << std::endl;
 	std::cout << static_cast<int>(test_cursor.get_size()) << std::endl;
-	std::cout << View_output(test_cursor.get_view()) << std::endl;
+	std::cout << view_output(test_cursor.get_view()) << std::endl;
 	std::cout << test_cursor.get_visibility() << std::endl;
 	Cursor test_copy(test_cursor);
 	std::cout << "--------------------TESTCOPY--------------------" << std::endl;
