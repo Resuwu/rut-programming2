@@ -82,5 +82,5 @@ std::ostream& operator<<(std::ostream& os, const Orientation& obj)
 
 std::ostream& operator<<(std::ostream& os, const Cursor& obj)
 {
-	return os << obj.get_x() << '/' << obj.get_y() << '/' << obj.get_size() << '/' << obj.get_view() << '/' << obj.get_visibility();
+	return os << '|' << std::setw(4) << obj.get_x() << '|' << std::setw(4) << obj.get_y() << '|' << std::setw(2) << static_cast<unsigned short>(obj.get_size()) << '|' << std::setw(10) << obj.get_view() << '|' << obj.get_visibility() << '|';
 }

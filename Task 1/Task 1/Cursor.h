@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include <string>
 #include <ostream>
+#include <iomanip>
 
 /**
  * \brief Ориентация курсора.
@@ -105,8 +106,10 @@ public:
 	 */
 	void show();
 
+	// Перегрузка оператора сдвига влево для enum класса Orientation
 	friend std::ostream& operator<<(std::ostream& os, const Orientation& obj);
 
+	// Перегрузка оператора сдвига влево для класса Cursor
 	friend std::ostream& operator<<(std::ostream& os, const Cursor& obj);
 
 private:
