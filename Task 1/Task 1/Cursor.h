@@ -1,4 +1,7 @@
 ﻿#pragma once
+#include <string>
+#include <ostream>
+#include <iomanip>
 
 /**
  * \brief Ориентация курсора.
@@ -23,7 +26,14 @@ public:
 	 * \param view Вид курсора
 	 * \param isVisible Видимость курсора
 	 */
-	Cursor(unsigned int x, unsigned int y, unsigned char size, Orientation view, bool isVisible);
+    explicit Cursor(const unsigned int x, const unsigned int y, const unsigned char size, const Orientation& view,
+		const bool is_visible, const unsigned int x_resolution, const unsigned int y_resolution, const unsigned char max_size, const unsigned char min_size);
+
+	/**
+	 * \brief Конструктор копирования.
+	 * \param other Копируемый курсор.
+	 */
+	Cursor(const Cursor& other);
 
 	/**
 	 * \brief Деструктор
@@ -34,49 +44,55 @@ public:
 	 * \brief Метод, возвращающий координату X
 	 * \return Координату X
 	 */
-	unsigned int getX() const;
+	unsigned int get_x() const;
 
 	/**
 	 * \brief Метод, возвращающий координату Y
 	 * \return Координату Y
 	 */
-	unsigned int getY() const;
+	unsigned int get_y() const;
 
 	/**
 	 * \brief Метод, возвращающий размер курсора
 	 * \return Размер курсора
 	 */
-	unsigned char getSize() const;
+	unsigned char get_size() const;
 
 	/**
 	 * \brief Метод, возвращающий вид курсора
 	 * \return Вид курсора
 	 */
-	Orientation getView() const;
+	Orientation get_view() const;
+
+	/**
+	 * \brief Метод, возвращающий видимость курсора
+	 * \return Видимость курсора
+	 */
+	bool get_visibility() const;
 
 	/**
 	 * \brief Метод, изменяющий положение курсора по оси X
 	 * \param x Новое значение X
 	 */
-	void setX(unsigned int x);
+	void set_x(unsigned int x);
 
 	/**
 	 * \brief Метод, изменяющий положение курсора по оси Y
 	 * \param x Новое значение Y
 	 */
-	void setY(unsigned int y);
+	void set_y(unsigned int y);
 
 	/**
 	 * \brief Метод, изменяющий размер курсора
 	 * \param x Новое значение размера курсора
 	 */
-	void setSize(unsigned char size);
+	void set_size(unsigned char size);
 
 	/**
 	 * \brief Метод, изменяющий вид курсора
 	 * \param x Вид курсора
 	 */
-	void setView(Orientation view);
+	void set_view(Orientation view);
 
 	/**
 	 * \brief Метод, гасящий курсор
@@ -90,29 +106,55 @@ public:
 	 */
 	void show();
 
+	// Перегрузка оператора сдвига влево для enum класса Orientation
+	friend std::ostream& operator<<(std::ostream& os, const Orientation& obj);
+
+	// Перегрузка оператора сдвига влево для класса Cursor
+	friend std::ostream& operator<<(std::ostream& os, const Cursor& obj);
+
 private:
 	/**
 	 * \brief Координата по оси X
 	 */
-	unsigned int x;
+	unsigned int m_x;
 
 	/**
 	 * \brief Координата по оси Y
 	 */
-	unsigned int y;
+	unsigned int m_y;
 
 	/**
 	 * \brief Размер курсора
 	 */
-	unsigned char size;
+	unsigned char m_size;
 
 	/**
 	 * \brief Вид курсора
 	 */
-	Orientation view;
+	Orientation m_view;
 
 	/**
 	 * \brief Видимость курсора
 	 */
-	bool isVisible;
+	bool m_is_visible;
+
+	/**
+	 * \brief Разрешение экрана по оси x
+	 */
+	unsigned int m_x_resolution;
+
+	/**
+	 * \brief Разрешение экрана по оси y
+	 */
+	unsigned int m_y_resolution;
+
+	/**
+	 * \brief Максимальный размер курсора
+	 */
+	unsigned char m_max_size;
+
+	/**
+	 * \brief Минимальный размер курсора
+	 */
+	unsigned char m_min_size;
 };
