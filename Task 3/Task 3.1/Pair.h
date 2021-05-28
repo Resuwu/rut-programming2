@@ -96,13 +96,13 @@ public:
 	* \brief Метод умножения на число
 	* \param x Множитель
 	*/
-	virtual void mul(const unsigned int x);
+	void mul(const unsigned int x);
 
 	/**
 	* \brief Метод сложения
 	* \param other Слагаемое
 	*/
-	virtual void sum(const Money& other);
+	void sum(const Money& other);
 
 	/**
 	* \brief Метод вычитания
