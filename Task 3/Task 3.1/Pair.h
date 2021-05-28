@@ -119,7 +119,12 @@ public:
 	/**
 	* \brief Метод перевода копеек в рубли
 	*/
-	void change();
+	void exchange_to_rubles();
+
+	/**
+	* \brief Метод перевода рублей в копейки
+	*/
+	unsigned int exchange_to_penny() const;
 
 private:
 

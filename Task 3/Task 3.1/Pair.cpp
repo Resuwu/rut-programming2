@@ -35,15 +35,13 @@ std::ostream& operator<<(std::ostream& os, const Money& obj)
 Money::Money(const unsigned int rubles, const unsigned int penny)
 	: m_rubles(rubles), m_penny(penny)
 {
-	if (m_penny >= 100)
-		change();
+	exchange_to_rubles();
 }
 
 Money::Money(const unsigned int penny)
 	: m_rubles(0), m_penny(penny)
 {
-	if (m_penny >= 100)
-		change();
+	exchange_to_rubles();
 }
 
 Money::Money(const Money& other)
@@ -55,50 +53,49 @@ void Money::mul(const unsigned int x)
 {
 	m_rubles *= x;
 	m_penny *= x;
-	if (m_penny >= 100)
-		change();
+	exchange_to_rubles();
 }
 
 void Money::sum(const Money& other)
 {
 	m_rubles += other.m_rubles;
 	m_penny += other.m_penny;
-	if (m_penny >= 100)
-		change();
+	exchange_to_rubles();
 }
 
 void Money::sub(const Money& other)
 {
-	if (m_rubles >= other.m_rubles)
+	if (exchange_to_penny() > other.exchange_to_penny())
 	{
-		if (m_penny < other.m_penny)
-		{
-			if (m_rubles >= other.m_rubles + 1)
-			{
-				m_rubles -= 1;
-				m_penny += 100;
-			}
-		}
-		m_rubles -= other.m_rubles;
-		m_penny -= other.m_penny;
+		m_penny = exchange_to_penny() - other.exchange_to_penny();
+		m_rubles = 0;
+		exchange_to_rubles();
 	}
 }
 
 Money Money::div(const unsigned int x)
 {
-	unsigned int temp = m_rubles * 100 + m_penny;
-	if (x <= temp)
+	m_penny = exchange_to_penny();
+	m_rubles = 0;
+	if (x <= m_penny)
 	{
-		m_rubles = 0;
-		m_penny = temp / x;
-		if (m_penny >= 100)
-			change();
+		unsigned int temp = m_penny % x;
+		m_penny /= x;
+		exchange_to_rubles();
+		return Money(0, temp);
 	}
-	return Money(0, temp % x);
 }
 
-void Money::change()
+void Money::exchange_to_rubles()
 {
-	m_rubles += m_penny / 100;
-	m_penny = m_penny % 100;
+	if (m_penny >= 100)
+	{
+		m_rubles += m_penny / 100;
+		m_penny = m_penny % 100;
+	}
+}
+
+unsigned int Money::exchange_to_penny() const
+{
+	return m_penny + m_rubles * 100;
 }
