@@ -1,8 +1,8 @@
 #include "Classes.h"
 
 functions::functions(const double x = 0)
-	:m_x(x)
 {
+	set_x(x);
 	calc_functions();
 };
 
@@ -22,9 +22,12 @@ double functions::get_x() const
 	return m_x;
 };
 
-void functions::set_x(double x)
+void functions::set_x(double x) throw (std::invalid_argument)
 {
-	m_x = x;
+	if (x <= 1 && x >= -1)
+		m_x = x;
+	else
+		throw (std::invalid_argument("Value should be in [-1;1] interval!\n"));
 };
 
 double functions::get_arcsin() const
