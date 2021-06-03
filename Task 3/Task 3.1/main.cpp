@@ -19,7 +19,7 @@ int main()
 		test_pair_1.mul(2);
 		std::cout << test_pair_1 << std::endl;
 
-		Money test_money_1(101, 33);
+		Money test_money_1(0, 33);
 		Money test_money_2(23, 56);
 
 		std::cout << "------------------------------------------TESTMONEY" << std::endl;
@@ -38,6 +38,9 @@ int main()
 		test_money_1.sub(test_money_2);
 		std::cout << test_money_1 << std::endl;
 
+		test_money_1.sub(test_money_2);
+		std::cout << test_money_1 << std::endl;
+
 		std::cout << "------------------------------------------TESTDIV" << std::endl;
 
 		Money rem = test_money_1.div(3);
@@ -49,9 +52,9 @@ int main()
 		Money test_penny_1(12345);
 		std::cout << test_penny_1 << std::endl;
 	}
-	catch (std::exception& e)
+	catch (std::invalid_argument& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << e.what();
 	}
 
 	system("pause");

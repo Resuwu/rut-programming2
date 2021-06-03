@@ -63,7 +63,7 @@ void Money::sum(const Money& other)
 	exchange_to_rubles();
 }
 
-void Money::sub(const Money& other)
+void Money::sub(const Money& other) throw(std::invalid_argument)
 {
 	if (exchange_to_penny() > other.exchange_to_penny())
 	{
@@ -71,9 +71,11 @@ void Money::sub(const Money& other)
 		m_rubles = 0;
 		exchange_to_rubles();
 	}
+	else
+		throw(std::invalid_argument("Error, not enough money!\n"));
 }
 
-Money Money::div(const unsigned int x)
+Money Money::div(const unsigned int x) throw(std::invalid_argument)
 {
 	m_penny = exchange_to_penny();
 	m_rubles = 0;
@@ -84,6 +86,8 @@ Money Money::div(const unsigned int x)
 		exchange_to_rubles();
 		return Money(0, temp);
 	}
+	else
+		throw(std::invalid_argument("Error, not enough money!\n"));
 }
 
 void Money::exchange_to_rubles()
