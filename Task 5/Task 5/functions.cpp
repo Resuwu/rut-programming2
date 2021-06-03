@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include "math_helper.cpp"
 #include <cmath>
 
 //Точка
@@ -11,7 +12,7 @@ struct point
 //Перегрузка оператора сравнения для структуры point
 inline bool operator==(const point& obj1, const point& obj2)
 {
-	return ((obj1.x == obj2.x) && (obj1.y == obj2.y));
+	return (double_compare(obj1.x, obj2.x) && double_compare(obj1.y, obj2.y));
 }
 
 //Мой класс исключений
